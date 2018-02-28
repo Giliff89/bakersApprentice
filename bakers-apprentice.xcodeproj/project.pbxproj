@@ -11,7 +11,6 @@
 		297F2EC2692A03A194E1AC41 /* Pods_bakers_apprentice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CD6554DDA6F2CED4BFDE7F9 /* Pods_bakers_apprentice.framework */; };
 		2CD4F5A60C714B9F6046C412 /* Pods_bakers_apprenticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA0C9361F4D33D2F03FFC541 /* Pods_bakers_apprenticeTests.framework */; };
 		8A2A45ED2004396800D156D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A45EC2004396800D156D8 /* AppDelegate.swift */; };
-		8A2A45EF2004396800D156D8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A45EE2004396800D156D8 /* HomeViewController.swift */; };
 		8A2A45F22004396800D156D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2A45F02004396800D156D8 /* Main.storyboard */; };
 		8A2A45F42004396800D156D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A2A45F32004396800D156D8 /* Assets.xcassets */; };
 		8A2A45F72004396800D156D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A2A45F52004396800D156D8 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,7 @@
 		8A2A46292004892800D156D8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A46282004892800D156D8 /* DetailViewController.swift */; };
 		8A2A462B2004893C00D156D8 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A462A2004893C00D156D8 /* CategoryViewController.swift */; };
 		8A4E07CA20325A2000CB5B8A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4E07C920325A2000CB5B8A /* Constants.swift */; };
+		8A4E07CC2047563F00CB5B8A /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4E07CB2047563F00CB5B8A /* HomeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +49,6 @@
 		7CEC2CF7853145EBE6B0D30D /* Pods-bakers-apprenticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bakers-apprenticeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bakers-apprenticeUITests/Pods-bakers-apprenticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A2A45E92004396800D156D8 /* bakers-apprentice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "bakers-apprentice.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A2A45EC2004396800D156D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8A2A45EE2004396800D156D8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8A2A45F12004396800D156D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8A2A45F32004396800D156D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A2A45F62004396800D156D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -65,6 +64,7 @@
 		8A2A46282004892800D156D8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8A2A462A2004893C00D156D8 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		8A4E07C920325A2000CB5B8A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8A4E07CB2047563F00CB5B8A /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		8C9C98FDDA759CA160FD5C72 /* Pods-bakers-apprenticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bakers-apprenticeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-bakers-apprenticeTests/Pods-bakers-apprenticeTests.release.xcconfig"; sourceTree = "<group>"; };
 		9967897497690C7D4D9CA53D /* Pods-bakers-apprenticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bakers-apprenticeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bakers-apprenticeUITests/Pods-bakers-apprenticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9CD6554DDA6F2CED4BFDE7F9 /* Pods_bakers_apprentice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bakers_apprentice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,7 +179,7 @@
 		8A2A461F20043BBD00D156D8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8A2A45EE2004396800D156D8 /* HomeViewController.swift */,
+				8A4E07CB2047563F00CB5B8A /* HomeTableViewController.swift */,
 				8A2A46282004892800D156D8 /* DetailViewController.swift */,
 				8A2A462A2004893C00D156D8 /* CategoryViewController.swift */,
 			);
@@ -487,9 +487,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A2A462B2004893C00D156D8 /* CategoryViewController.swift in Sources */,
-				8A2A45EF2004396800D156D8 /* HomeViewController.swift in Sources */,
 				8A2A45ED2004396800D156D8 /* AppDelegate.swift in Sources */,
 				8A2A461E20043A7800D156D8 /* RoundedShadowButton.swift in Sources */,
+				8A4E07CC2047563F00CB5B8A /* HomeTableViewController.swift in Sources */,
 				8A2A46292004892800D156D8 /* DetailViewController.swift in Sources */,
 				8A4E07CA20325A2000CB5B8A /* Constants.swift in Sources */,
 			);

@@ -25,7 +25,7 @@ class CategoryViewController: UIViewController, UITableViewDataSource {
         itemsInCategoryTableView.dataSource = self
         
         categoryNameLabel.text = categoryChosen
-
+        
 //        categoryDescriptionLabel.text = "category description"
         
         if categoryChosen == "Flour" {
@@ -82,15 +82,16 @@ extension CategoryViewController: UITableViewDelegate {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "IngredientSegue" {
-            
+//        if segue.identifier == "IngredientSegue" {
+        
             if let indexPath = self.itemsInCategoryTableView.indexPathForSelectedRow {
                 let destinationVC = segue.destination as? DetailViewController
                 
                 let ingredientToPass = categoryList[indexPath.row]
                 destinationVC?.ingredientChosen = ingredientToPass
+                destinationVC?.ingredientCategory = "Category: " + categoryChosen
                 
             }
-        }
+//        }
     }
 }

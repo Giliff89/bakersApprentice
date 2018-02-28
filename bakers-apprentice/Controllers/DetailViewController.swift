@@ -17,11 +17,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var itemUsesLabel: UILabel!
     
     var ingredientChosen: String!
+    var ingredientCategory: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         itemNameLabel.text = ingredientChosen
+        categoryLabel.text = ingredientCategory
     }
 
 }
