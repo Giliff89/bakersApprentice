@@ -36,9 +36,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="Qj4-wU-O0a" kind="show" identifier="categorySegue" id="fbm-86-cKB"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -49,6 +46,9 @@
                     <navigationItem key="navigationItem" title="Ingredient Lookup" id="xrv-jg-gf3">
                         <barButtonItem key="backBarButtonItem" title="Back" id="WCn-oy-IeT"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="Qj4-wU-O0a" kind="show" identifier="categorySegue" id="RMx-aw-NOS"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sAZ-Rt-HgG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -96,46 +96,40 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZe-D7-OMe">
-                                <rect key="frame" x="106" y="191" width="163" height="20"/>
-                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K1C-09-wu3">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="E3A-mU-Qhj"/>
-                                    <constraint firstAttribute="height" constant="44" id="Ocx-tH-nJN"/>
-                                </constraints>
-                                <viewLayoutGuide key="safeArea" id="47U-Ph-k4K"/>
-                                <items>
-                                    <navigationItem title="Ingredient Category" id="45W-HW-jgK">
-                                        <barButtonItem key="backBarButtonItem" title="Back" id="Lcv-2r-5ls"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn5-sG-tsx">
-                                <rect key="frame" x="15" y="128" width="345" height="38"/>
+                                <rect key="frame" x="15" y="89" width="345" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="345" id="8gh-L9-Hos"/>
                                     <constraint firstAttribute="height" constant="38" id="I67-Jb-Ycf"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="38" id="XDw-qS-VOo"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="345" id="gNg-UK-oSM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZe-D7-OMe">
+                                <rect key="frame" x="15" y="152" width="345" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="345" id="uym-Fo-FZ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="K1C-09-wu3" firstAttribute="top" secondItem="VH6-2V-WVu" secondAttribute="top" id="2on-eE-vyF"/>
-                            <constraint firstItem="VH6-2V-WVu" firstAttribute="trailing" secondItem="zZe-D7-OMe" secondAttribute="trailing" constant="106" id="O5C-48-F4H"/>
+                            <constraint firstItem="hn5-sG-tsx" firstAttribute="top" secondItem="VH6-2V-WVu" secondAttribute="top" constant="25" id="8sh-x2-iCd"/>
+                            <constraint firstItem="zZe-D7-OMe" firstAttribute="top" secondItem="hn5-sG-tsx" secondAttribute="bottom" constant="25" id="ITV-xg-apd"/>
+                            <constraint firstItem="VH6-2V-WVu" firstAttribute="trailing" secondItem="hn5-sG-tsx" secondAttribute="trailing" constant="15" id="Ods-1F-MZz"/>
+                            <constraint firstItem="VH6-2V-WVu" firstAttribute="trailing" secondItem="zZe-D7-OMe" secondAttribute="trailing" constant="15" id="Tvu-Uf-2ke"/>
                             <constraint firstItem="hn5-sG-tsx" firstAttribute="centerX" secondItem="5NR-d3-ZwH" secondAttribute="centerX" id="WYc-vj-W7h"/>
-                            <constraint firstItem="zZe-D7-OMe" firstAttribute="top" secondItem="hn5-sG-tsx" secondAttribute="bottom" constant="25" id="bFR-4A-2x7"/>
-                            <constraint firstItem="hn5-sG-tsx" firstAttribute="top" secondItem="K1C-09-wu3" secondAttribute="bottom" constant="20" id="eLI-Dv-BZ7"/>
                             <constraint firstItem="hn5-sG-tsx" firstAttribute="leading" secondItem="VH6-2V-WVu" secondAttribute="leading" constant="15" id="eXG-oM-hn6"/>
-                            <constraint firstItem="zZe-D7-OMe" firstAttribute="leading" secondItem="VH6-2V-WVu" secondAttribute="leading" constant="106" id="uR3-51-KgZ"/>
+                            <constraint firstItem="zZe-D7-OMe" firstAttribute="leading" secondItem="VH6-2V-WVu" secondAttribute="leading" constant="15" id="reG-qa-gY6"/>
+                            <constraint firstItem="zZe-D7-OMe" firstAttribute="centerX" secondItem="5NR-d3-ZwH" secondAttribute="centerX" id="saJ-pW-aNH"/>
                             <constraint firstItem="VH6-2V-WVu" firstAttribute="trailing" secondItem="hn5-sG-tsx" secondAttribute="trailing" constant="15" id="xFC-eN-nJh"/>
+                            <constraint firstItem="hn5-sG-tsx" firstAttribute="leading" secondItem="VH6-2V-WVu" secondAttribute="leading" constant="15" id="zaQ-BE-2ro"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VH6-2V-WVu"/>
                     </view>
@@ -220,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdD-t1-e6Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1762.4000000000001" y="25.637181409295355"/>
+            <point key="canvasLocation" x="1702" y="28"/>
         </scene>
     </scenes>
 </document>
