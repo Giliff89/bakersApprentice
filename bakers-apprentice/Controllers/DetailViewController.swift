@@ -16,10 +16,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var itemAlternativesLabel: UILabel!
     @IBOutlet weak var itemUsesLabel: UILabel!
     
+    var ingredientChosen: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        itemNameLabel.text = ingredientChosen
     }
 
 }

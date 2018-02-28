@@ -8,35 +8,89 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: UIViewController, UITableViewDataSource {
 
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var categoryDescriptionLabel: UILabel!
     
-    let flour = ["All Purpose Flour", "Bread Flour", "Pastry Flour", "Cake Flour", "Rye Flour", "Whole Wheat Flour", "Sorghum Flour", "Almond Flour", "Tapioca Flour", "Cassava Flour", "Garbanzo Bean Flour", "Rice Flour", "Quinoa Flour", "Oat Flour", "Teff Flour", "Millet Flour", "Corn Flour", "Buckwheat Flour", "Hazelnut Flour", "Chestnut Flour", "Potato Flour", "Fava Bean Flour"]
+    @IBOutlet weak var itemsInCategoryTableView: UITableView!
     
-    let sugar = ["Cane Sugar", "Powdered Sugar", "Light Brown Sugar", "Dark Brown Sugar", "Agave", "Honey", "Rice Syrup", "Brown Rice Syrup", "Corn Syrup", "Molasses", "Maple Syrup", "Coconut Sugar", "Sucanat", "Demerara", "Raw Cane Sugar", "Glucose Syrup", "Malt Syrup", "High Fructose Corn Syrup", "Invert Sugar", "Beet Sugar", "Dextrose", "Isomalt", "Fructose"]
+    var categoryChosen: String!
     
-    let fat = ["Butter", "Margarine", "Olive Oil", "Sesame Oil", "Coconut Oil", "Avocado Oil", "Macadamia Nut Oil", "Ghee", "Vegetable Oil", "Canola Oil"]
-    
-    let eggs = ["Eggs", "Egg White", "Egg Yolk", "Egg Alternatives"]
-    
-    let dairy = ["Butter", "Milk", "Heavy Cream", "Buttermilk", "Yogurt", "Sour Cream", "Dairy Alternatives"]
-    
-    let chocolate = ["Cacao", "Cocoa Powder", "Baking Chocolate", "Carob", "Milk Chocolate", "Dark Chocolate", "Semi-Sweet Chocolate", "White Chocolate", "Bittersweet Chocolate"]
-    
-    let leavening = ["Baking Powder", "Baking Soda", "Yeast"]
-    
-    let nuts = ["Almonds", "Cashews", "Walnuts", "Peanuts", "Sesame Seeds", "Macadamia Nuts", "Brazil Nuts", "Pumpkin Seeds", "Hazelnuts", "Pecans", "Pine Nuts", "Pistachios"]
-    
-    let flavors = ["Vanilla", "Mint", "Lemon", "Chocolate", "Orange"]
-    
-    let thickeners = ["Corn Starch", "Potato Starch", "Gelatin", "Pectin", "Guar Gum", "Xanthan Gum", "Tapioca Starch", "Arrowroot Powder"]
-    
+    var categoryList: Array<String> = []
+       
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        itemsInCategoryTableView.dataSource = self
+        
+        categoryNameLabel.text = categoryChosen
 
+//        categoryDescriptionLabel.text = "category description"
+        
+        if categoryChosen == "Flour" {
+            categoryList = flourList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Sugar" {
+            categoryList = sugarList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Fats" {
+            categoryList = fatList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Eggs" {
+            categoryList = eggsList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Dairy" {
+            categoryList = dairyList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Chocolate" {
+            categoryList = chocolateList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Leavening Agents" {
+            categoryList = leaveningList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Nuts and Seeds" {
+            categoryList = nutsList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Flavors" {
+            categoryList = flavorsList.sorted()
+            print(categoryList)
+        } else if categoryChosen == "Thickeners" {
+            categoryList = thickenersList.sorted()
+            print(categoryList)
+        }
+    }
+}
+
+extension CategoryViewController: UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categoryList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
+                let item = categoryList[indexPath.row]
+                cell.textLabel?.text = item
+        
+        return cell
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "IngredientSegue" {
+            
+            if let indexPath = self.itemsInCategoryTableView.indexPathForSelectedRow {
+                let destinationVC = segue.destination as? DetailViewController
+                
+                let ingredientToPass = categoryList[indexPath.row]
+                destinationVC?.ingredientChosen = ingredientToPass
+                
+            }
+        }
+    }
 }

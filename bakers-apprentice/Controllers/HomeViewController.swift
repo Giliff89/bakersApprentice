@@ -10,9 +10,19 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource {
     
-    let categories = ["Flours", "Sugars", "Fats/Oils", "Eggs", "Milk/Dairy", "Cocoa/Chocolate", "Leavening Agents", "Nuts/Seeds", "Flavors", "Thickeners"]
+    let categories = ["Flour", "Sugar", "Fats", "Eggs", "Dairy", "Chocolate", "Leavening Agents", "Nuts and Seeds", "Flavors", "Thickeners"]
 
     @IBOutlet weak var categoryTableView: UITableView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        categoryTableView.dataSource = self
+        
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -32,16 +42,17 @@ class HomeViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Add later
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        categoryTableView.dataSource = self
-        
+        if segue.identifier == "categorySegue" {
+            
+            if let indexPath = self.categoryTableView.indexPathForSelectedRow {
+                let destinationVC = segue.destination as? CategoryViewController
+                
+                let categoryToPass = categories[indexPath.row]
+                destinationVC?.categoryChosen = categoryToPass
+            
+            }
+        }
     }
-    
 }
-
